@@ -1,9 +1,14 @@
+// next.config.mjs
 import withPWA from "next-pwa";
 
-export default withPWA({
+const pwaOptions = {
   dest: "public",
-  runtimeCaching: [],          // filled in gist for brevity
+  runtimeCaching: [],
   disable: process.env.NODE_ENV === "development",
+};
+
+const nextConfig = {
+  experimental: { appDir: true },
   images: {
     remotePatterns: [
       {
@@ -14,4 +19,6 @@ export default withPWA({
       },
     ],
   },
-});
+};
+
+export default withPWA(pwaOptions)(nextConfig);
