@@ -1,4 +1,5 @@
-// keeps bundle tiny – no "use client" needed
+"use client"
+
 interface Props {
     label: string;
     value: number | string;
