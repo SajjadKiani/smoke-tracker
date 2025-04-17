@@ -8,7 +8,6 @@ import {
   isSameDay,
   subDays,
 } from "date-fns";
-import { logout } from "./(auth)/sign-out";
 
 export default async function Page() {
   const session = await auth();
@@ -57,14 +56,14 @@ export default async function Page() {
             Hi&nbsp;{user?.name?.split(" ")[0] ?? "there"} 👋
           </h2>
         </div>
-        <form action={logout}>
+        {/* <form action={logout}>
           <button
             className="text-sm text-gray-500 underline-offset-2 hover:underline"
             type="submit"
           >
             Sign out
           </button>
-        </form>
+        </form> */}
       </header>
 
       {/* stats grid */}
