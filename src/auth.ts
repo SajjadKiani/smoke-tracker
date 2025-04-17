@@ -1,16 +1,10 @@
-// auth.ts  (root)
+// auth.ts   (🟢 repo root, not under /src)
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prisma } from "@/lib/prisma";          // absolute import still works
+import { prisma } from "@/lib/prisma";
 
-export const {
-  auth,                       // <- the function you use in Server Components
-  signIn,
-  signOut,
-  handlers,                   // { GET, POST }
-} = NextAuth({
+export const { auth, signIn, handlers } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  providers: [GoogleProvider],
-  session: { strategy: "jwt" },
+  providers: [Google],
 });
