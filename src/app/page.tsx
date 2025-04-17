@@ -1,6 +1,10 @@
 import { prisma } from "@/lib/prisma";
-import { auth, signIn, signOut } from "@/auth";
-import ContributionCalendar from "@/components/ContributionCalendar";
+import { auth } from "@/auth";
+import dynamic from "next/dynamic";
+const ContributionCalendar = dynamic(
+  () => import("@/components/ContributionCalendar")
+);
+
 import StatsCard from "@/components/StatsCard";
 import Image from "next/image";
 import {
