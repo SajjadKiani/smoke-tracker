@@ -8,6 +8,8 @@ import {
   isSameDay,
   subDays,
 } from "date-fns";
+import { googleSignIn } from "./(auth)/google-sign-in";
+import { logout } from "./(auth)/sign-out";
 
 export default async function Page() {
   const session = await auth();
@@ -16,7 +18,7 @@ export default async function Page() {
     return (
       <main className="flex h-screen flex-col items-center justify-center gap-6 bg-gray-50 p-4">
         <h1 className="text-2xl font-bold">Smoke‑Tracker</h1>
-        <form action={async () => signIn("google")}>
+        <form action={googleSignIn}>
           <button className="rounded-md bg-green-600 px-5 py-2 text-white shadow hover:bg-green-700">
             Sign in with Google
           </button>
@@ -56,14 +58,14 @@ export default async function Page() {
             Hi&nbsp;{user?.name?.split(" ")[0] ?? "there"} 👋
           </h2>
         </div>
-        {/* <form action={logout}>
+        <form action={logout}>
           <button
             className="text-sm text-gray-500 underline-offset-2 hover:underline"
             type="submit"
           >
             Sign out
           </button>
-        </form> */}
+        </form>
       </header>
 
       {/* stats grid */}
