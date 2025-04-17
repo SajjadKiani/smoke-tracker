@@ -39,7 +39,7 @@ export default function ContributionCalendar({
       cellHeight="1rem"
       cellWidth="1rem"
       squares
-      background={(v) =>
+      background={(v: any) =>
         v === 0 ? "#f5f5f5" : `rgba(34,197,94,${Math.min(1, v / 4)})`
       }
       cellStyle={() => ({ borderRadius: 2 })}
