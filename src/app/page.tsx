@@ -1,9 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
-import dynamic from "next/dynamic";
-const ContributionCalendar = dynamic(
-  () => import("@/components/ContributionCalendar")
-);
+import CalendarClientWrapper from "@/components/CalendarClientWrapper";
 
 import StatsCard from "@/components/StatsCard";
 import Image from "next/image";
@@ -81,7 +78,7 @@ export default async function Page() {
       </section>
 
       {/* contribution calendar */}
-      <ContributionCalendar events={events} />
+      <CalendarClientWrapper events={events} />
     </main>
   );
 }
