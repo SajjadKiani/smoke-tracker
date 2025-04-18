@@ -80,12 +80,6 @@ export default function ContributionCalendar({
     return { grid, weeks: weekCount, viewStart };
   }, [events]);
 
-  // build leaderboard for selected day
-  const selectedDateKey = selected ? format(selected.date, "yyyy-MM-dd") : "";
-  const leaderboard = useMemo(() => {
-    return userMap?.[selectedDateKey] ?? [];
-  }, [selectedDateKey, userMap]);
-
   return (
     <div className="overflow-x-auto">
       {/* Day-of-week labels */}
@@ -133,26 +127,7 @@ export default function ContributionCalendar({
             );
           })
         )}
-
       </div>
-
-      {/* Leaderboard for selected day */}
-      {selected && (
-        <div className="mt-4">
-          <h4 className="text-sm font-semibold mb-2">
-            Who smoked on {format(selected.date, "MMM d, yyyy")}?
-          </h4>
-          {leaderboard.length > 0 ? (
-            <ul className="list-disc list-inside text-sm">
-              {leaderboard.map((user, idx) => (
-                <li key={idx}>{user}</li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm text-gray-500">No one logged a smoke.</p>
-          )}
-        </div>
-      )}
     </div>
   );
 }

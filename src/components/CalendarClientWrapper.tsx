@@ -11,7 +11,12 @@ const ContributionCalendar = dynamic(
   }
 );
 
-type Props = { events: SmokingEvent[] };
-export default function CalendarClientWrapper({ events }: Props) {
-  return <ContributionCalendar events={events} />;
+export default function CalendarClientWrapper({
+  events,
+  userMap,
+}: {
+  events: SmokingEvent[];
+  userMap: Record<string, string[]>;
+}) {
+  return <ContributionCalendar events={events} userMap={userMap} />;
 }

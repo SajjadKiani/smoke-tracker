@@ -15,7 +15,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en" className="h-full bg-gray-50">
-      <body className={`${inter.className} h-full`}>
+      <body className={`${inter.className} min-h-screen`}>
         {children}
         {session && <Fab />}          {/* rendered only for signed‑in users */}
       </body>
